@@ -1,8 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
 
-    <!-- TODO: 3 buttons for modes -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="מערכת התקנת תעודות אבטחה (רוט)"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btn_select_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📁 בחר קובץ תעודה (.crt / .pem)"
+        android:layout_marginBottom="16dp" />
+
+    <TextView
+        android:id="@+id/tv_selected_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="לא נבחר קובץ"
+        android:textAlignment="center"
+        android:textColor="#666666"
+        android:layout_marginBottom="32dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CCCCCC"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btn_install_system"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💾 התקנה קבועה לדיסק הקשיח (System)"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btn_install_ram_temp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⚡ התקנה זמנית ל-RAM (לסשן הנוכחי)"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btn_install_ram_perm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔄 התקנה קבועה ל-RAM (הזרקה אוטומטית בהפעלה)" />
+
 </LinearLayout>
