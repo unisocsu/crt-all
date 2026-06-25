@@ -1,12 +1,17 @@
-// בלוק שמסביר לגראדל איפה לחפש את הפלאגינים של אנדרואיד
 buildscript {
     repositories {
         google()
         mavenCentral()
     }
+    dependencies {
+        // הגדרה ישירה של הפלאגין של אנדרואיד
+        classpath 'com.android.tools.build:gradle:8.2.2'
+    }
 }
 
-plugins {
-    id 'com.android.application' version '8.2.2' apply false
-    id 'com.android.library' version '8.2.2' apply false
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
