@@ -16,6 +16,13 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // התאמה למבנה התיקיות הייחודי שלך כדי שגראדל ימצא את המניפסט
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
