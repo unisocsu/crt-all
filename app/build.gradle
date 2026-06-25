@@ -1,26 +1,44 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
 }
 
 android {
     namespace 'com.example.crtinstaller'
-    compileSdk 19
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.crtinstaller"
-        minSdk 19
-        targetSdk 19
+        // הגדרת minSdk ל-24 כדי לתמוך ברוב המכשירים בשוק
+        minSdk 24
+        targetSdk 34
         versionCode 1
         versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
             minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    
+    // הגדרת קומפילציה ל-Java 8 באופן מפורש
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
+    // ספריות הבסיס הרשמיות של אנדרואיד ל-Java
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    
+    // ספריות לבדיקות קוד (טסטים)
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
