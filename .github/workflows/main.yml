@@ -22,13 +22,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # 3. התקנת גרסת Gradle מתאימה ישירות על השרת (פותר את בעיית הקובץ החסר!)
+    # 3. התקנת גרסת Gradle מתאימה (תיקון: גרסה 8.2 קיימת ותומכת ב-AGP 8.2.2)
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
       with:
-        gradle-version: 8.2.2
+        gradle-version: '8.2'
 
-    # 4. הרצת הקמפול באמצעות פקודת gradle ישירה (בלי ה-w בסוף)
+    # 4. הרצת הקמפול באמצעות פקודת gradle ישירה
     - name: Build Debug APK
       run: gradle assembleDebug
 
