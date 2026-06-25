@@ -1,18 +1,30 @@
-<manifest package="com.example.crtinstaller"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
 
     <application
-        android:label="CRT Installer"
-        android:allowBackup="true">
-
-        <activity android:name=".MainActivity">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="מתקין תעודות אבטחה"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".FileExplorerActivity"/>
+        <activity
+            android:name=".FileExplorerActivity"
+            android:exported="false"
+            android:label="בחירת קובץ תעודה" />
+            
     </application>
-
 </manifest>
