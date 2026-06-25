@@ -22,17 +22,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # 3. התקנת גרסת Gradle מתאימה
+    # 3. התקנת גרסת Gradle 8.2
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: '8.2'
 
-    # 4. תיקון: הרצת הקמפול ישירות על תת-המודול :app
+    # 4. הרצת הקמפול הרשמי של מודול האפליקציה
     - name: Build Debug APK
       run: gradle :app:assembleDebug
 
-    # 5. שמירת קובץ ה-APK המוכן
+    # 5. שמירה והורדה של קובץ ה-APK המוכן
     - name: Upload Compiled APK
       uses: actions/upload-artifact@v4
       with:
