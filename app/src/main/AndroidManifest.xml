@@ -1,0 +1,18 @@
+<manifest package="com.example.crtinstaller"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:label="CRT Installer"
+        android:allowBackup="true">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".FileExplorerActivity"/>
+    </application>
+
+</manifest>
