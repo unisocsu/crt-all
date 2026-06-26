@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. mשיכת הקוד
+    # 1. משיכת הקוד
     - name: Checkout Source Code
       uses: actions/checkout@v4
 
@@ -28,11 +28,11 @@ jobs:
       with:
         gradle-version: '8.2'
 
-    # 4. הרצת הבנייה של האפליקציה (מתאים לאנדרואיד 4.4 בזכות ה-build.gradle שלך)
+    # 4. הרצת הבנייה של האפליקציה
     - name: Build Debug APK
       run: gradle :app:assembleDebug
 
-    # 5. שינוי סיומת הקובץ ואריזה ב-ZIP (ייעוץ מיוחד למעקף חסימת נטפרי)
+    # 5. שינוי סיומת הקובץ ואריזה ב-ZIP (למעקף חסימת נטפרי)
     - name: Rename and Pack into ZIP
       run: |
         cd app/build/outputs/apk/debug/
