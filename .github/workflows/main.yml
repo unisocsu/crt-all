@@ -32,16 +32,16 @@ jobs:
     - name: Build Debug APK
       run: gradle :app:assembleDebug
 
-    # 5. שינוי סיומת הקובץ ואריזה ב-ZIP (למעקף חסימת נטפרי)
+    # 5. שינוי סיומת הקובץ ואריזה ב-ZIP (עבודה עם נתיב אבסולוטי קשיח)
     - name: Rename and Pack into ZIP
       run: |
         cd app/build/outputs/apk/debug/
         mv app-debug.apk app-debug.ap_
-        zip -r ../../../../crt-installer.zip app-debug.ap_
+        zip -r "${{ github.workspace }}/crt-installer.zip" app-debug.ap_
 
     # 6. העלאת קובץ ה-ZIP המוכן להורדה מגיטהאב
     - name: Upload Compiled ZIP
       uses: actions/upload-artifact@v4
       with:
         name: crt-installer-zip-package
-        path: crt-installer.zip
+        path: ${{ github.workspace }}/crt-installer.zip
