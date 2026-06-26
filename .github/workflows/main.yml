@@ -11,30 +11,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. משיכת הקוד
+    # 1. mשיכת הקוד
     - name: Checkout Source Code
       uses: actions/checkout@v4
 
-    # 2. הגדרת סביבת ג'אווה 17 תואמת לגראדל 8
+    # 2. הגדרת סביבת ג'אווה 17
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
         java-version: '17'
         distribution: 'temurin'
 
-    # 3. התקנת גראדל 8.2 (חוסך את הצורך ב-gradlew מקומי שלא קיים כרגע)
+    # 3. התקנת גראדל 8.2
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
       with:
         gradle-version: '8.2'
 
-    # 4. הרצת הבנייה הישירה של האפליקציה
+    # 4. הרצת הבנייה של האפליקציה (מתאים לאנדרואיד 4.4 בזכות ה-build.gradle שלך)
     - name: Build Debug APK
       run: gradle :app:assembleDebug
 
-    # 5. חילוץ ושמירת ה-APK להורדה ישירה בסיום הריצה
-    - name: Upload Compiled APK
+    # 5. שינוי סיומת הקובץ ואריזה ב-ZIP (ייעוץ מיוחד למעקף חסימת נטפרי)
+    - name: Rename and Pack into ZIP
+      run: |
+        cd app/build/outputs/apk/debug/
+        mv app-debug.apk app-debug.ap_
+        zip -r ../../../../crt-installer.zip app-debug.ap_
+
+    # 6. העלאת קובץ ה-ZIP המוכן להורדה מגיטהאב
+    - name: Upload Compiled ZIP
       uses: actions/upload-artifact@v4
       with:
-        name: crt-installer-debug-apk
-        path: app/build/outputs/apk/debug/app-debug.apk
+        name: crt-installer-zip-package
+        path: crt-installer.zip
