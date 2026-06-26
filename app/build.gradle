@@ -3,13 +3,14 @@ plugins {
 }
 
 android {
-    // הגדרת ה-ID והגרסאות המתאימות ל-KitKat
-    compileSdkVersion 34
+    namespace 'com.example.crtinstaller'
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.crtinstaller"
-        minSdkVersion 19
-        targetSdkVersion 34
+        // 1. שינוי ה-minSdk ל-19 עבור תמיכה באנדרואיד 4.4 KitKat
+        minSdk 19
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -29,7 +30,7 @@ android {
 }
 
 dependencies {
-    // הספריות המותאמות לאנדרואיד 4.4
+    // 2. שנמוך גרסאות הספריות לגרסאות האחרונות שתמכו באנדרואיד 4.4
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
