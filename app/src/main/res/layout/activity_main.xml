@@ -3,58 +3,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
+    android:padding="16dp"
     android:gravity="center_horizontal">
 
     <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="מערכת התקנת תעודות אבטחה (רוט)"
-        android:textSize="20sp"
+        android:text="1. בחר סוג התקנה:"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="8dp" />
+
+    <RadioGroup
+        android:id="@+id/rg_install_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/rb_system"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="התקן למערכת (System Partition)"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/rb_ram_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="הזרקה זמנית ל-RAM (עד לכיבוי)"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground" />
+
+        <RadioButton
+            android:id="@+id/rb_ram_perm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="הזרקה קבועה ל-RAM (בכל הפעלה)"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. בחר קובץ תעודה:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
 
     <Button
         android:id="@+id/btn_select_file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="📁 בחר קובץ תעודה (.crt / .pem)"
-        android:layout_marginBottom="16dp" />
+        android:text="עיון בקבצים..."
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:id="@+id/tv_selected_file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="לא נבחר קובץ"
-        android:textAlignment="center"
+        android:text="טרם נבחר קובץ"
+        android:textSize="14sp"
         android:textColor="#666666"
-        android:layout_marginBottom="32dp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#CCCCCC"
-        android:layout_marginBottom="24dp"/>
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
 
     <Button
-        android:id="@+id/btn_install_system"
+        android:id="@+id/btn_install_execute"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="💾 התקנה קבועה לדיסק הקשיח (System)"
-        android:layout_marginBottom="12dp" />
-
-    <Button
-        android:id="@+id/btn_install_ram_temp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="⚡ התקנה זמנית ל-RAM (לסשן הנוכחי)"
-        android:layout_marginBottom="12dp" />
-
-    <Button
-        android:id="@+id/btn_install_ram_perm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🔄 התקנה קבועה ל-RAM (הזרקה אוטומטית בהפעלה)" />
+        android:text="התקן תעודה"
+        android:textStyle="bold"
+        android:focusable="true"
+        android:background="?android:attr/selectableItemBackground" />
 
 </LinearLayout>
